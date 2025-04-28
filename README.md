@@ -1,8 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Stock Dashboard
 
-## Getting Started
+A dynamic web application built with Next.js, React, TypeScript, and Tailwind CSS to display real-time stock quotes, allow users to add stocks to a watchlist, and sort the data. Data is fetched from the [Finnhub API](https://finnhub.io/).
 
-First, run the development server:
+## Features
+
+- **Real-time Data:** Displays current stock prices, daily change, and percentage change.
+- **Dynamic Watchlist:** Fetches an initial list of stocks and allows users to add new stock symbols via an input field.
+- **Interactive Sorting:** Click table headers (Symbol, Price, Change, % Change) to sort the data in ascending or descending order.
+- **Visual Feedback:** Newly added stocks are briefly highlighted for easy identification.
+- **Loading & Error States:** Provides skeleton loaders during data fetching and clear error messages.
+- **Responsive Design:** Built with Tailwind CSS for adaptability across different screen sizes.
+
+## Technology Stack
+
+- **Framework:** Next.js 14+ (App Router)
+- **Language:** TypeScript
+- **UI Library:** React
+- **Styling:** Tailwind CSS
+- **UI Components:** Shadcn UI
+- **Data Source:** Finnhub API
+
+## Prerequisites
+
+- Node.js (v18 or later recommended)
+- npm, yarn, or pnpm
+- A **Finnhub API Key** (Free tier available) - Get one at [https://finnhub.io/register](https://finnhub.io/register)
+
+## Setup and Configuration
+
+1.  **Clone the repository:**
+
+    ```bash
+    git clone https://github.com/7nguyennguyen3/stock-dashboard
+    ```
+
+2.  **Install dependencies:**
+
+    ```bash
+    npm install
+    # or
+    yarn install
+    # or
+    pnpm install
+    ```
+
+3.  **Configure API Key:**
+
+    - You **MUST** obtain an API key from [Finnhub](https://finnhub.io/).
+    - Create a file named `.env.local` in the root directory of the project.
+    - Add your Finnhub API key to this file:
+
+      ```plaintext
+      # .env.local
+      FINNHUB_API_KEY=YOUR_ACTUAL_FINNHUB_API_KEY
+      ```
+
+    - Replace `YOUR_ACTUAL_FINNHUB_API_KEY` with the key you obtained from Finnhub.
+    - **Important:** The `.env.local` file is included in `.gitignore` by default in Next.js projects to prevent accidentally committing your secret keys.
+
+## Running the Development Server
+
+Once the setup is complete, you can run the development server:
 
 ```bash
 npm run dev
@@ -10,27 +68,5 @@ npm run dev
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
+Open http://localhost:3000 with your browser to see the application.API Routes/api/stock: (GET) Fetches data for the initial list of stocks defined in the route handler./api/stock/new: (POST) Fetches data for a single stock symbol provided in the request body ({ "symbol": "XYZ" }).NotesThe free tier of the Finnhub API has rate limits. Be mindful of how frequently you refresh or add stocks.Stock data might
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
