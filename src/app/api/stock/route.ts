@@ -81,7 +81,7 @@ async function fetchFinnhubQuote(symbol: string): Promise<StockInfo | null> {
   }
 }
 
-export async function GET(request: NextRequest) {
+export async function GET(_request: NextRequest) {
   if (!API_KEY) {
     return NextResponse.json(
       { error: "Finnhub API key is not configured on the server." },
